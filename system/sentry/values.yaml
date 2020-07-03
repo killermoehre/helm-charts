@@ -76,13 +76,13 @@ redis:
 # Deploy Sentry Prometheus alerts.
 alerts:
   enabled: true
-  large_database_size: false
   # Name of the Prometheus to which the alerts should be assigned to.
   prometheus: openstack
 
 pgmetrics:
   db_name: sentry
-
+  large_database_size: false
+  
   customMetrics:
     sentry_unresolved_issues:
       query: >

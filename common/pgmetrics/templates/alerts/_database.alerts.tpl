@@ -1,7 +1,7 @@
 groups:
 - name: pg-database.alerts
   rules:
-  {{- if .Values.alerts.large_database_size | default true }}
+  {{- if .Values.pgmetrics.large_database_size | default true }}
   - alert: {{ include "alerts.service" . | title }}PostgresDatabaseTooLarge
     expr: max(pg_database_size_bytes{datname="{{ default .Release.Name .Values.db_name }}"}) by (app,datname) >= 8.589934592e+09
     for: 5m
